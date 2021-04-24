@@ -58,6 +58,14 @@ function! lightline#lsp#ok() abort
   return l:counts == 0 ? s:indicator_ok : ''
 endfunction
 
+function! lightline#lsp#clients() abort
+  if s:isHidden()
+    return ''
+  endif
+
+  return luaeval('require("jg.lightline.lsp").client_names()')
+endfunction
+
 " function! lightline#lsp#status()
 "   return get(g:, 'lsp_status', '')
 " endfunction
@@ -74,6 +82,7 @@ function! lightline#lsp#register() abort
   call s:setLightline('component_expand', 'lsp_info',     'lightline#lsp#info')
   call s:setLightline('component_expand', 'lsp_hints',    'lightline#lsp#hints')
   call s:setLightline('component_expand', 'lsp_ok',       'lightline#lsp#ok')
+  call s:setLightline('component_expand', 'lsp_clients',  'lightline#lsp#clients')
 
   call s:setLightline('component_type', 'lsp_warnings', 'warning')
   call s:setLightline('component_type', 'lsp_errors',   'error')

@@ -97,6 +97,18 @@ function M.get_messages()
   return new_messages
 end
 
+
+function M.client_names()
+  local clients = {}
+  local icon = ' '
+
+  for _, client in pairs(vim.lsp.buf_get_clients()) do
+    clients[#clients+1] = icon .. client.name
+  end
+
+  return table.concat(clients, ' ')
+end
+
 function M.setup()
   register_progress()
 end
