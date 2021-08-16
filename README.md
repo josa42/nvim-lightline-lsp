@@ -9,7 +9,7 @@ This plugin provides neovim buildin lsp diagnostics indicator for the [lightline
 Install using a plugin manager of your choice, for example [`vim-plug`](https://github.com/junegunn/vim-plug):
 
 ```viml
-Plug 'josa42/vim-lightline-lsp'
+Plug 'josa42/nvim-lightline-lsp'
 ```
 
 ## Components
@@ -26,7 +26,7 @@ Plug 'josa42/vim-lightline-lsp'
 ```viml
 let g:lightline = {
   \   'active': {
-  \     left': [[  'lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok' ], [ 'lsp_status' ]]
+  \     'left': [[  'lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok' ], [ 'lsp_status' ]]
   \   }
   \ }
 
@@ -59,7 +59,7 @@ let g:lightline.component_type = {
 
 " Add the components to the lightline:
 let g:lightline.active = {
-  \   left': [[ 'lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok' ], [ 'lsp_status' ]]
+  \   'left': [[ 'lsp_info', 'lsp_hints', 'lsp_errors', 'lsp_warnings', 'lsp_ok' ], [ 'lsp_status' ]]
   \ }
 ```
 
