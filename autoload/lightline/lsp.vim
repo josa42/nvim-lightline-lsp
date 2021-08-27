@@ -98,7 +98,7 @@ endfunction
 
 function! s:count(level) abort
   let result = luaeval('vim.lsp.diagnostic.get_count(' . bufnr() . ', [[' . a:level . ']])')
-  if result
+  if l:result
     return l:result
   else
     return 0
