@@ -97,7 +97,7 @@ endfunction
 " Helper functions
 
 function! s:count(level) abort
-  return luaeval('vim.lsp.diagnostic.get_count(' . bufnr() . ', [[' . a:level . ']])') || 0
+  return luaeval('vim.diagnostic.get(' . bufnr() . ', [[' . a:level . ']])') || 0
 endfunction
 
 function! s:countSum() abort
