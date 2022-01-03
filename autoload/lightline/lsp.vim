@@ -18,7 +18,7 @@ function! lightline#lsp#warnings() abort
     return ''
   endif
 
-  let l:counts = s:count('Warning')
+  let l:counts = s:count('WARN')
   return l:counts == 0 ? '' : printf(s:indicator_warnings . '%d', l:counts)
 endfunction
 
@@ -27,7 +27,7 @@ function! lightline#lsp#errors() abort
     return ''
   endif
 
-  let l:counts = s:count('Error')
+  let l:counts = s:count('ERROR')
   return l:counts == 0 ? '' : printf(s:indicator_errors . '%d', l:counts)
 endfunction
 
@@ -36,7 +36,7 @@ function! lightline#lsp#info() abort
     return ''
   endif
 
-  let l:counts = s:count('Information')
+  let l:counts = s:count('INFO')
   return l:counts == 0 ? '' : printf(s:indicator_info . '%d', l:counts)
 endfunction
 
@@ -45,7 +45,7 @@ function! lightline#lsp#hints() abort
     return ''
   endif
 
-  let l:counts = s:count('Hint')
+  let l:counts = s:count('HINT')
   return l:counts == 0 ? '' : printf(s:indicator_hints . '%d', l:counts)
 endfunction
 
@@ -97,12 +97,13 @@ endfunction
 " Helper functions
 
 function! s:count(level) abort
-  return luaeval('vim.lsp.diagnostic.get_count(' . bufnr() . ', [[' . a:level . ']])') || 0
+  let l:result = luaeval('vim.diagnostic.get(' . bufnr() . ', { severity = vim.diagnostic.severity.' . a:level . '})')
+  return len(l:result)
 endfunction
 
 function! s:countSum() abort
   let info = get(b:, 'lsp_diagnostic_info', {})
-  return s:count('Error') + s:count('Warning')
+  return s:count('ERROR') + s:count('WARN')
 endfunction
 
 function! s:isHidden()
