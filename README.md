@@ -40,21 +40,21 @@ call lightline#lsp#register()
 " Register the components:
 let g:lightline = {}
 let g:lightline.component_expand = {
-  \   'linter_warnings': 'lightline#lsp#warnings',
-  \   'linter_errors': 'lightline#lsp#errors',
-  \   'linter_info': 'lightline#lsp#info',
-  \   'linter_hints': 'lightline#lsp#hints',
-  \   'linter_ok': 'lightline#lsp#ok',
+  \   'lsp_warnings': 'lightline#lsp#warnings',
+  \   'lsp_errors': 'lightline#lsp#errors',
+  \   'lsp_info': 'lightline#lsp#info',
+  \   'lsp_hints': 'lightline#lsp#hints',
+  \   'lsp_ok': 'lightline#lsp#ok',
   \   'status': 'lightline#lsp#status',
   \ }
 
 " Set color to the components:
 let g:lightline.component_type = {
-  \   'linter_warnings': 'warning',
-  \   'linter_errors': 'error',
-  \   'linter_info': 'info',
-  \   'linter_hints': 'hints',
-  \   'linter_ok': 'left',
+  \   'lsp_warnings': 'warning',
+  \   'lsp_errors': 'error',
+  \   'lsp_info': 'info',
+  \   'lsp_hints': 'hints',
+  \   'lsp_ok': 'left',
   \ }
 
 " Add the components to the lightline:
