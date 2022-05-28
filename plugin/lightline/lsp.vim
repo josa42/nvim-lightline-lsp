@@ -1,6 +1,6 @@
 augroup lightline#coc
   autocmd!
-  autocmd User LspDiagnosticsChanged call lightline#update()
+  autocmd DiagnosticChanged * call lightline#update()
   " autocmd User CocStatusChange call lightline#update()
 
 
