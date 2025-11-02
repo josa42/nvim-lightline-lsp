@@ -102,7 +102,7 @@ function M.client_names()
   local clients = {}
   local icon = ' '
 
-  for _, client in pairs(vim.lsp.buf_get_clients()) do
+  for _, client in pairs(vim.lsp.get_clients({bufnr = vim.fn.bufnr()})) do
     clients[#clients+1] = icon .. client.name
   end
 
