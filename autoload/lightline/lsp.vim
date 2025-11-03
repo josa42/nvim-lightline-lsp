@@ -107,7 +107,7 @@ function! s:countSum() abort
 endfunction
 
 function! s:isHidden()
-  return !luaeval('not vim.tbl_isempty(vim.lsp.buf_get_clients('.bufnr().'))') || exists('*lightline#sensible#isHidden') && lightline#sensible#isHidden()
+  return !luaeval('not vim.tbl_isempty(vim.lsp.get_clients({bufnr = '.bufnr().'}))') || exists('*lightline#sensible#isHidden') && lightline#sensible#isHidden()
 endfunction
 
 function! s:setLightline(scope, name, value) abort
